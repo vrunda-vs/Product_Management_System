@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        a.myclass {
+        color:#fff;
+        text-decoration:none;
+       font-size:14px;
+       font-weight:bold;
+       margin-top:10px;
+       margin-left:10px;
+        }
+        .sidenav {
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  background-color: #000;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+        .sidenav a {
+  display: block;
+  color: #fff;
+  padding: 16px;
+  font-size:16px;
+  font-weight:bold;
+  text-decoration: none;
+}
+        .main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+       
+    </style>
+
+
+</head>
+<body style="margin:0px;padding:0px;background:#fff;padding-bottom:100px">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid" style="overflow: hidden;margin:0px;padding:0px;">
+            <div class="col-md-12" style="background:#800;text-align:center;">
+                <ul style="text-align:right;list-style-type:none;padding-top:10px;">
+                    <li style="text-align:right;">@Html.ActionLink("Logout", "Index", "Logout",new { @class="myclass"},null)</li>
+                </ul>
+                <h2 style="color:#fff;text-align:center;min-height:50px;margin:0px;vertical-align:middle;line-height:20px;">Product Management System</h2>
+                
+            </div>
+        </div>
+           
+        
+    </div>
+    <div class="container" style="background:#fff;margin:0;padding:0;margin-top:80px;">
+        <div class="sidenav" style="color:#fff;margin-top:0px;padding-top:40px">
+           @Html.ActionLink("Product List", "Index", "ViewProduct")
+           @Html.ActionLink("Add Product", "Index", "AddProduct")
+        </div>
+        <div class="align-items-center main" style="align-content:center;margin-top:20px;">
+            @RenderBody()
+        </div>
+
+
+
+    </div>
+    <div class="col-md-12" style="bottom:0;position:fixed">
+        <footer class="col-md-12" style="text-align:center;position:absolute;bottom:0;right:0;left:0;background:#800;color:#fff;min-height:50px;">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

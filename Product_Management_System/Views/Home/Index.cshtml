@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+    
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript">
+    function GetUserName()
+    {
+        document.getElementById("user").value = '<%= Session["UserName"] %>';
+        var a = @Session["UserName"];
+        alert(a);
+
+            }
+        </script>
+    </head>
+    <body style="height:auto;" onload="GetUserName()">
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <center>
+                <div class="col-md-12"></div>
+                <div class="form-horizontal col-md-8" style="text-align:left" >
+                    @if (Session["firstname"] != null)
+                    {
+                        <h1 id="user">Welcome @Session["firstname"]</h1>
+
+                    }
+                   
+                </div>
+            </center>
+        }
+
+
+    </body>
+</html>
